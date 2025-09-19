@@ -2,16 +2,32 @@ package main
 
 import "fmt"
 
+// main is the entry point of the Advanced Even/Odd Number Analyzer
 func main() {
+	fmt.Println("🔢 Advanced Even/Odd Number Analyzer 🔢")
+	fmt.Println("=====================================")
 
-	numbers := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	// Get numbers from user input
+	numbers := getUserNumbers()
 
-	for _, number := range numbers {
-		if number%2 == 0 {
-			fmt.Println(number, "is Even")
-		} else {
-			fmt.Println(number, "is odd")
-		}
+	if len(numbers) == 0 {
+		fmt.Println("No numbers provided. Exiting...")
+		return
 	}
 
+	// Analyze each number
+	analyses := analyzeNumbers(numbers)
+
+	// Display detailed analysis
+	displayDetailedAnalysis(analyses)
+
+	// Calculate and display statistics
+	stats := calculateStatistics(analyses)
+	displayStatistics(stats)
+
+	// Performance benchmark
+	benchmarkAlgorithms(numbers)
+
+	// Interactive mode
+	interactiveMode()
 }
